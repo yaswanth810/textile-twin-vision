@@ -1,12 +1,37 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React, { useState } from 'react';
+import Navigation from '@/components/Layout/Navigation';
+import Factory3D from '@/components/Factory3D/Factory3D';
+import Dashboard from '@/components/Dashboard/Dashboard';
+import Analytics from '@/components/Analytics/Analytics';
+import Machines from '@/components/Machines/Machines';
+import Alerts from '@/components/Alerts/Alerts';
 
 const Index = () => {
+  const [activeTab, setActiveTab] = useState('factory');
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case 'factory':
+        return <Factory3D />;
+      case 'dashboard':
+        return <Dashboard />;
+      case 'analytics':
+        return <Analytics />;
+      case 'machines':
+        return <Machines />;
+      case 'alerts':
+        return <Alerts />;
+      default:
+        return <Factory3D />;
+    }
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <Navigation activeTab={activeTab} onTabChange={setActiveTab} />
+      <main className="transition-smooth">
+        {renderContent()}
+      </main>
     </div>
   );
 };

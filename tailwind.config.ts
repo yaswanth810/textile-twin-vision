@@ -52,16 +52,19 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				}
+				industrial: {
+					DEFAULT: 'hsl(var(--industrial-blue))',
+					dark: 'hsl(var(--industrial-blue-dark))'
+				},
+				'safety-green': {
+					DEFAULT: 'hsl(var(--safety-green))',
+					light: 'hsl(var(--safety-green-light))'
+				},
+				'warning-orange': 'hsl(var(--warning-orange))',
+				'danger-red': 'hsl(var(--danger-red))',
+				'neutral-steel': 'hsl(var(--neutral-steel))',
+				success: 'hsl(var(--success))',
+				error: 'hsl(var(--error))',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +87,31 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'pulse-glow': {
+					'0%': {
+						boxShadow: '0 0 20px hsl(var(--primary) / 0.3)'
+					},
+					'100%': {
+						boxShadow: '0 0 40px hsl(var(--primary) / 0.6)'
+					}
+				},
+				'fade-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(10px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse-glow': 'pulse-glow 2s ease-in-out infinite alternate',
+				'fade-in': 'fade-in 0.3s ease-out'
 			}
 		}
 	},
